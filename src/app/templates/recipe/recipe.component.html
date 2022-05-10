@@ -1,0 +1,50 @@
+<main *ngIf="recipe">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumbs-container full-width">
+    <ol class="breadcrumbs">
+      <li><a href="">Recipes</a></li>
+      <li>{{ recipe.name }}</li>
+    </ol>
+  </nav>
+
+  <!-- Recipe Section -->
+  <section class="recipe full-width">
+    <div>
+      <div class="card large">
+        <img src='assets/img/recipes/{{ recipe.imgSrc }}'>
+      </div>
+      <div class="recipe__ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="recipe__details">
+      <div class="recipe__header">
+        <h1>{{ recipe.name }}</h1>
+        <div class="recipe__difficulty">
+          <p class="text-grey">Difficulty:</p>
+          <div class="rate">
+            <span *ngFor="let difficulty of recipe.difficulty"></span>
+          </div>
+        </div>
+      </div>
+      <div class="recipe__instructions">
+        <h3 class="invert">Preparation</h3>
+        <p class="recipe__instructions__text">
+          {{ recipe.preparation }}
+        </p>
+      </div>
+    </div>
+    <img src="assets/img/fruits_vegetables.png" alt="" class="fruits__image">
+  </section>
+
+  <!-- This is "good appetite" in french 🧐 -->
+  <section class="greatings">
+    <h1>"Bonne appétite"!</h1>
+  </section>
+</main>

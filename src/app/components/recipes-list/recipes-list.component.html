@@ -1,0 +1,18 @@
+<div class="recipes-list" id="recipes-list">
+  <div *ngFor="let recipe of recipes" class="card">
+    <img src='assets/img/recipes/{{ recipe.imgSrc }}' alt="">
+    <div class="card__description">
+      <div class="rate small difficulty">
+        <span *ngFor="let difficulty of recipe.difficulty"></span>
+      </div>
+
+      <small>{{ recipe.category }}</small>
+      <h5>{{ recipe.name }}</h5>
+      <div class="card__actions">
+        <button class="primary small pill"><a routerLink="/recipe/{{ recipe.slug }}">See recipe</a></button>
+        <button class="blue small pill" *ngIf="recipe.bookmarked === false" (click)="toggleFavorite(recipe)">Add to favorites</button>
+        <button class="danger small pill" *ngIf="recipe.bookmarked === true" (click)="toggleFavorite(recipe)">Remove from favorites</button>
+      </div>
+    </div>
+  </div>
+</div>

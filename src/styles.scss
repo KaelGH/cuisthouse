@@ -1,0 +1,773 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/*****************/
+/*   VARIABLES   */
+/*****************/
+
+// Var – Layout
+$page-width: 1200px;
+$grid-gutter-size: 32px;
+$header-height: 90px;
+
+// Var – Colors
+$color-primary: #F8A22F;
+$color-blue: #2F8CF8;
+$color-danger: #F8462F;
+$color-text-1: #242424;
+$color-text-2: #929292;
+$color-border: #CBCBCB;
+$color-lightgrey: #FAFAFA;
+$color-white: white;
+
+// Var – Typography
+$font-family: 'DM Sans', sans-serif;
+$font-size: 18px;
+$font-weight: 400;
+
+// Var – Navigation
+$breadcrumbs-separator: '›';
+
+
+/****************/
+/*    MIXINS    */
+/****************/
+
+// Heading underline
+
+@mixin headingUnderline {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0.05em;
+    width: 100px;
+    max-width: 100%;
+    height: 4px;
+    border-radius: 100px;
+    background-color: $color-primary;
+  }
+
+  // when heading has .invert to change undelrine color to white
+  &.invert {
+    &::after {
+      background-color: $color-white;
+    }
+
+  }
+}
+
+
+
+/******************/
+/*     LAYOUT     */
+/******************/
+
+// Molecules
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: calc($page-width + 52px);
+  min-height: 100vh;
+  padding: 0 26px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  // font
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color-text-1;
+}
+
+main {
+  padding-top: $header-height; // Fixed header offset
+}
+
+// Modifiers
+
+.full-width {
+  // Make section or division full viewport width
+  margin-left: calc(0px - (50vw - 50%));
+  margin-right: calc(0px - (50vw - 50%));
+  padding-left: calc(50vw - $page-width / 2);
+  padding-right: calc(50vw - $page-width / 2);
+}
+
+
+
+/******************/
+/*   COMPONENTS   */
+/******************/
+
+/*   TYPOGRAPHY   */
+
+// Atoms
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 5px 0 15px;
+  @include headingUnderline()
+}
+
+h2 {
+  display: inline-block;
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 5px 0 15px;
+  @include headingUnderline()
+}
+
+h3 {
+  display: inline-block;
+  font-size: 44px;
+  font-weight: 400;
+  margin: 5px 0 15px;
+  @include headingUnderline()
+}
+
+strong {
+  font-weight: 700;
+}
+
+// Modifiers
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-dark {
+  color: $color-text-1;
+}
+
+.text-grey {
+  color: $color-text-2;
+}
+
+.text-white {
+  color: $color-white;
+}
+
+
+/*  BUTTONS & INPUTS  */
+
+// Atoms
+
+button,
+select,
+input {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  max-width: 300px;
+  min-width: min-content;
+  min-height: 42px;
+  height: 1em;
+  box-sizing: border-box;
+  background-color: $color-lightgrey;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  outline: none;
+  // font
+  font-family: inherit;
+  font-size: clamp(16px, 0.8em, 1em);
+  font-weight: 500;
+  word-break: initial;
+  vertical-align: middle;
+  color: $color-text-1;
+  // Interaction
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+
+  // <a> into button
+  &>a {
+    margin: 0 -30px;
+    min-height: 42px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  // Modifier – Pill shape
+  &.pill {
+    border-radius: 1000px;
+  }
+
+  // Modifier – Size
+  &.small {
+    min-height: 28px;
+    font-size: 12px;
+    padding: 0 20px;
+
+    &>a {
+      margin: 0 -20px;
+      min-height: 28px;
+      padding: 0 20px;
+    }
+  }
+
+  &.primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: transparent;
+
+    // Modifier – Ghost
+    &.ghost {
+      color: $color-primary;
+    }
+
+  }
+
+  &.blue {
+    background-color: $color-blue;
+    color: $color-white;
+    border-color: transparent;
+
+    // Modifier – Ghost
+    &.ghost {
+      color: $color-blue;
+    }
+  }
+
+  &.danger {
+    background-color: $color-danger;
+    color: $color-white;
+    border-color: transparent;
+
+    // Modifier – Ghost
+    &.ghost {
+      color: $color-danger;
+    }
+  }
+
+  // Modifier – Ghost
+  &.ghost {
+    background-color: $color-white;
+  }
+}
+
+button {
+  text-transform: uppercase;
+}
+
+input,
+select {
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: 400;
+
+  &.small {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  &.pill {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+input {
+  cursor: auto;
+}
+
+
+.rate {
+  display: flex;
+  column-gap: 8px;
+
+  span {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 100px;
+    border: 1px solid $color-primary;
+    background-color: $color-white;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      flex: 1;
+      background-color: $color-primary;
+      mask: url(assets/img/fork.svg);
+      mask-position: center;
+      mask-size: 60%;
+      mask-repeat: no-repeat;
+    }
+  }
+
+  &.small {
+    column-gap: 4px;
+
+    span {
+      width: 26px;
+      height: 26px;
+      border: none;
+    }
+  }
+}
+
+
+/*   NAVIGATION   */
+
+// Atoms
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    color: $color-text-2;
+
+    &::after {
+      content: $breadcrumbs-separator;
+      padding-left: 8px;
+    }
+
+    &:last-child {
+      color: $color-primary;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+// Templates
+
+.breadcrumbs-container {
+  position: sticky;
+  top: $header-height;
+  background: $color-white;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #cbcbcb;
+  z-index: 20;
+}
+
+
+/*    CARDS    */
+
+// Atoms
+
+.card__description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 20px 20px 20px;
+  box-sizing: border-box;
+  background-color: rgba($color: black, $alpha: 0.5);
+  text-align: left;
+  transform: translateY(calc(100% - 85px));
+  transition: 0.2s;
+
+  small {
+    color: $color-primary;
+    font-size: 0.8em;
+    text-transform: capitalize;
+  }
+
+  h5 {
+    margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.2em;
+    color: $color-white;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+  .card__actions {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: wrap;
+    column-gap: 12px;
+    row-gap: 6px;
+
+    button {
+      white-space: nowrap;
+    }
+  }
+}
+
+// Molecules
+
+.card {
+  position: relative;
+  background-color: #f1f1f1;
+  width: 420px;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 16px -8px rgba($color: black, $alpha: 0.2);
+  transition: box-shadow 0.2s;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 40px -12px rgba($color: black, $alpha: 0.2);
+
+    img {
+      transform: scale(1.04);
+    }
+
+    .card__description {
+      transform: translateY(0);
+    }
+  }
+
+  &.large {
+    width: 480px;
+    height: 480px;
+  }
+}
+
+
+
+/*****************/
+/*   TEMPLATES   */
+/*****************/
+
+// Header
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: $header-height;
+  padding: 0 calc(50vw - $page-width / 2);
+  box-sizing: border-box;
+  z-index: 10;
+  background-color: #626262ac;
+  backdrop-filter: blur(40px); // not on firefox sadly
+
+  // Header title or image
+  .header__title-logo {
+    margin: 0;
+    font-weight: 700;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 40px;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+
+  // Header navigation
+  .header__navigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    align-items: center;
+
+    a {
+      position: relative;
+      text-transform: uppercase;
+      opacity: 0.6;
+
+      &.active {
+        opacity: 0.8;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          border-radius: 10px;
+          background-color: $color-primary;
+        }
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Footer
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 100px;
+  margin: 0 calc(0px - (50vw - 50%));
+  padding: 42px calc(55vw - $page-width / 2) 140px;
+  box-sizing: border-box;
+  // font
+  font-size: 0.8em;
+  // background
+  background-size: cover;
+  background-position: center;
+
+  // logo
+  .footer__logo {
+    max-height: 50px;
+  }
+
+  .footer__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 2em;
+  }
+
+  // line
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: $page-width;
+    height: 1px;
+    transform: translateX(-50%);
+    background-color: $color-white;
+  }
+}
+
+// Pages Head
+
+.page-head {
+  position: relative;
+  min-height: calc(60vh - 120px);
+  padding-top: 4vw;
+  margin-bottom: 150px;
+
+  p {
+    max-width: 550px;
+  }
+
+  .page-head__image {
+    position: absolute;
+    top: -120px;
+    right: calc(50% - 50vw);
+    width: 50vw;
+    max-height: calc(100% + 160px);
+    object-fit: contain;
+    object-position: right top;
+  }
+
+  .page-head__mouse {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    transform: translateX(-50%);
+  }
+}
+
+// Homepage Favorites Section
+
+.add-favorites-banner {
+  display: flex;
+  column-gap: 60px;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $color-primary;
+
+  .add-favorites-banner__image {
+    width: 45vw;
+    margin-left: calc(55% - 50vw);
+  }
+
+  .add-favorites-banner__text {
+    flex: 1;
+  }
+}
+
+// Recipes List
+
+.recipes-list__container {
+  position: relative;
+  padding: 60px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 600px;
+    background-color: $color-primary;
+    background-image: url(assets/img/fruit_pattern.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: url(#recipesListMask);
+    z-index: -1;
+  }
+
+  .recipes-list__actions {
+    display: flex;
+    column-gap: 32px;
+    margin-top: 14.5px;
+
+    input {
+      min-width: calc(($page-width - 64px) / 3);
+    }
+
+    select {
+      min-width: calc(($page-width - 64px) / 5);
+    }
+  }
+}
+
+.recipes-list {
+  display: flex;
+  row-gap: $grid-gutter-size;
+  column-gap: $grid-gutter-size;
+  flex-flow: row wrap;
+  margin: $grid-gutter-size 0;
+  flex-grow: inherit;
+  padding-top: 60px;
+
+  &>.card {
+    flex: 0 0 calc((100% - calc($grid-gutter-size * 2)) / 3);
+    height: calc((($page-width - calc($grid-gutter-size * 2)) / 3) * 0.8);
+    flex-grow: inherit;
+
+    .card__description .difficulty {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// Recipe Page
+
+.recipe {
+  position: relative;
+  display: flex;
+  column-gap: 100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: $color-primary;
+
+  &>div {
+    z-index: 2;
+  }
+
+  .recipe__image {
+    width: 450px;
+    height: 450px;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  .recipe__ingredients {
+    background-color: $color-white;
+    padding: 40px;
+    border-radius: 14px;
+    margin-top: 40px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0 0 0;
+      line-height: 2em;
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+  }
+
+  .recipe__details {
+    flex: 1;
+    z-index: 1;
+
+    .recipe__header {
+      position: relative;
+      padding-bottom: 60px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        left: calc(($page-width / 2 - 580px) - 50vw);
+        right: calc(($page-width / 2) - 50vw);
+        bottom: 0;
+        background-color: $color-white;
+        background-image: url(assets/img/fruit_pattern.png);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -1;
+      }
+
+      .recipe__difficulty {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+      }
+    }
+
+    .recipe__instructions {
+      padding-top: 60px;
+
+      .recipe__instructions__text {
+        margin-top: 60px;
+        max-width: 600px;
+      }
+    }
+  }
+
+  .fruits__image {
+    position: absolute;
+    bottom: -203px;
+    right: -150px;
+    height: 420px;
+  }
+}
+
+.greatings {
+  padding: 60px 100px;
+}

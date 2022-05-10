@@ -1,0 +1,48 @@
+<main>
+
+  <!-- Page Head -->
+  <section class="page-head">
+    <h1>Cook <br>like a chef, <strong class="text-primary">at home!</strong></h1>
+    <p class="text-grey">Delicious recipe ideas classified by theme or by category, with photos, easy or technical, 100% tested.</p>
+    <br>
+    <button class="primary pill"><a routerLink="/recipes">Our recipes</a></button>
+    <img src="assets/img/home_head.png" alt="" class="page-head__image">
+    <img src="assets/img/mouse.png" alt="" class="page-head__mouse">
+  </section>
+
+  <!-- Recipes Container -->
+  <section class="recipes-list__container" style="text-align: center;">
+
+    <!-- Background SVG Mask -->
+    <svg width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+      <defs>
+        <clipPath id="recipesListMask" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 1,0 1,0.9 C 1,0.9, 0.9,0.7, 0.5,0.7 0.1,0.7, 0,0.9,0,0.9z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <h2 class="invert">The selection</h2>
+
+    <!-- Recipes List – get 6 recipes -->
+    <app-recipes-list></app-recipes-list>
+    <br>
+    <button class="primary pill"><a routerLink="/recipes">See all recipes</a></button>
+  </section>
+
+  <!-- Add to Favorites Banner -->
+  <section class="add-favorites-banner full-width">
+    <img src="assets/img/add_favorites_banner.png" alt="Verry beautifull food" class="add-favorites-banner__image">
+    <div class="add-favorites-banner__text">
+      <p style="margin: 0;">Every week there are new recipes that you can</p>
+      <h2 class="invert" style="margin-top: 0;">Add to <strong class="text-white">your favorites</strong></h2>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+        et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </p>
+      <br>
+      <button class="primary pill ghost"><a routerLink="/bookmarks">See my favorites</a></button>
+    </div>
+  </section>
+</main>

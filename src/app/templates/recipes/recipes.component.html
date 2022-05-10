@@ -1,0 +1,35 @@
+<main>
+
+  <!-- Page Head -->
+  <section class="page-head">
+    <h1>Recipes</h1>
+    <p class="text-grey">
+      Do you like to cook simple and quick recipes, or on the contrary refined ones, worthy of the great chefs?<br>
+      Light... or greedy?<br>
+      Classic or original?<br>
+      Whatever your idea, you will find among our best recipes the ideal menu to treat your friends and family.<br>
+      Enjoy your meal!
+    </p>
+    <img src="assets/img/recipes_head.png" alt="" class="page-head__image">
+    <img src="assets/img/mouse.png" alt="" class="page-head__mouse">
+  </section>
+
+  <!-- Recipes Container – get all recipes  -->
+  <section class="recipes-list__container">
+
+    <!-- Background SVG Mask -->
+    <svg width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+      <defs>
+        <clipPath id="recipesListMask" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 1,0 1,0.9 C 1,0.9, 0.9,0.7, 0.5,0.7 0.1,0.7, 0,0.9,0,0.9z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Sort Actions -->
+    <app-recipes-sort></app-recipes-sort>
+
+    <!-- Recipes List -->
+    <app-recipes-list></app-recipes-list>
+  </section>
+</main>

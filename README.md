@@ -7,7 +7,10 @@
 
 The exercise is to integrate the [UI design](https://xd.adobe.com/view/1eee05c4-c608-4ad6-8931-c94e413433bb-4bbd/) of the graphic team in an Angular project, and to create the [Design System](https://cuisthouse-doc.kaelgh.com/design-system) in accordance with the UI.
 
+[👉  See the App](https://kaelgh.github.io/cuisthouse)
+
 [👉  Doc and Design System here](https://cuisthouse-doc.kaelgh.com)
+
 
 <br>
 <br>
